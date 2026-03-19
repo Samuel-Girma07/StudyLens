@@ -1,0 +1,17 @@
+// ============================================================
+// CHANGE IN src/lib/external-apis.ts
+// Find the Open Library section (~line 210) and change ONE line:
+//
+// BEFORE:
+//   thumbnail: doc.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-M.jpg` : null,
+//
+// AFTER:
+//   thumbnail: doc.cover_i ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-S.jpg` : null,
+//
+// -S  = ~4 KB   (small,  ~130×165 px — perfect for grid cards)
+// -M  = ~15 KB  (medium, ~180×235 px — overkill for a card thumbnail)
+// -L  = ~40 KB  (large  — only needed for resource detail hero)
+//
+// Next.js will upscale the small cover for the card via its image optimiser,
+// which is far cheaper than downloading a medium and downscaling it in CSS.
+// ============================================================
