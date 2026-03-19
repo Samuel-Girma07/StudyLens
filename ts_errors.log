@@ -1,0 +1,33 @@
+backups/github-integration-complete-20260316-234529/external-apis.ts(562,5): error TS2322: Type '{ id: string; title: string; description: string; author: string; type: "github"; subject: string; thumbnail: string; url: string; difficulty: string; tags: (string | null)[]; likeCount: number; viewCount: number; ... 4 more ...; languageColor: string | null; }[]' is not assignable to type 'ExternalResource[]'.
+  Type '{ id: string; title: string; description: string; author: string; type: "github"; subject: string; thumbnail: string; url: string; difficulty: string; tags: (string | null)[]; likeCount: number; viewCount: number; ... 4 more ...; languageColor: string | null; }' is not assignable to type 'ExternalResource'.
+    Types of property 'tags' are incompatible.
+      Type '(string | null)[]' is not assignable to type 'string[]'.
+        Type 'string | null' is not assignable to type 'string'.
+          Type 'null' is not assignable to type 'string'.
+backups/pre-design-changes-20260314-153857/examples/websocket/frontend.tsx(4,20): error TS2307: Cannot find module 'socket.io-client' or its corresponding type declarations.
+backups/pre-design-changes-20260314-153857/examples/websocket/server.ts(2,24): error TS2307: Cannot find module 'socket.io' or its corresponding type declarations.
+backups/pre-design-changes-20260314-153857/src/app/api/resources/[id]/route.ts(67,9): error TS2322: Type '{ rating: number | null; saved: boolean; viewed: boolean; }' is not assignable to type 'null'.
+backups/pre-design-changes-20260314-153857/src/app/onboarding/page.tsx(30,3): error TS2305: Module '"@/lib/constants"' has no exported member 'subjectIcons'.
+backups/pre-design-changes-20260314-153857/src/app/onboarding/page.tsx(31,3): error TS2305: Module '"@/lib/constants"' has no exported member 'formatIcons'.
+backups/pre-design-changes-20260314-153857/src/app/onboarding/page.tsx(32,3): error TS2724: '"@/lib/constants"' has no exported member named 'experienceIcons'. Did you mean 'experienceNames'?
+backups/pre-design-changes-20260314-153857/src/app/onboarding/page.tsx(33,3): error TS2305: Module '"@/lib/constants"' has no exported member 'timeIcons'.
+backups/pre-design-changes-20260314-153857/src/app/resource/[id]/page.tsx(34,3): error TS2305: Module '"@/lib/constants"' has no exported member 'subjectIcons'.
+backups/spaced-repetition-complete-20260317-151117/app-layout.tsx(6,24): error TS2307: Cannot find module './footer' or its corresponding type declarations.
+backups/spaced-repetition-complete-20260317-151117/app-layout.tsx(7,34): error TS2307: Cannot find module './onboarding-banner' or its corresponding type declarations.
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(47,36): error TS2551: Property 'viewedAt' does not exist on type '{ resource: { id: string; type: string; title: string; subject: string; thumbnail: string | null; }; } & { id: string; createdAt: Date; updatedAt: Date; userId: string; resourceId: string; rating: number | null; saved: boolean; viewed: boolean; savedAt: Date | null; }'. Did you mean 'viewed'?
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(48,21): error TS2551: Property 'viewedAt' does not exist on type '{ resource: { id: string; type: string; title: string; subject: string; thumbnail: string | null; }; } & { id: string; createdAt: Date; updatedAt: Date; userId: string; resourceId: string; rating: number | null; saved: boolean; viewed: boolean; savedAt: Date | null; }'. Did you mean 'viewed'?
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(64,36): error TS2551: Property 'viewedAt' does not exist on type '{ resource: { id: string; type: string; title: string; subject: string; thumbnail: string | null; }; } & { id: string; createdAt: Date; updatedAt: Date; userId: string; resourceId: string; rating: number | null; saved: boolean; viewed: boolean; savedAt: Date | null; }'. Did you mean 'viewed'?
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(72,21): error TS2551: Property 'viewedAt' does not exist on type '{ resource: { id: string; type: string; title: string; subject: string; thumbnail: string | null; }; } & { id: string; createdAt: Date; updatedAt: Date; userId: string; resourceId: string; rating: number | null; saved: boolean; viewed: boolean; savedAt: Date | null; }'. Did you mean 'viewed'?
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(99,27): error TS2345: Argument of type '{ subject: { in: any; }; }' is not assignable to parameter of type 'never'.
+backups/working-version-20260317-134505/src/app/api/dashboard/route.ts(102,27): error TS2345: Argument of type '{ type: { in: any; }; }' is not assignable to parameter of type 'never'.
+backups/working-version-20260317-134505/src/app/api/resources/[id]/route.ts(67,9): error TS2322: Type '{ rating: number | null; saved: boolean; viewed: boolean; }' is not assignable to type 'null'.
+backups/working-version-20260317-134505/src/lib/external-apis.ts(562,5): error TS2322: Type '{ id: string; title: string; description: string; author: string; type: "github"; subject: string; thumbnail: string; url: string; difficulty: string; tags: (string | null)[]; likeCount: number; viewCount: number; ... 4 more ...; languageColor: string | null; }[]' is not assignable to type 'ExternalResource[]'.
+  Type '{ id: string; title: string; description: string; author: string; type: "github"; subject: string; thumbnail: string; url: string; difficulty: string; tags: (string | null)[]; likeCount: number; viewCount: number; ... 4 more ...; languageColor: string | null; }' is not assignable to type 'ExternalResource'.
+    Types of property 'tags' are incompatible.
+      Type '(string | null)[]' is not assignable to type 'string[]'.
+        Type 'string | null' is not assignable to type 'string'.
+          Type 'null' is not assignable to type 'string'.
+examples/websocket/frontend.tsx(4,20): error TS2307: Cannot find module 'socket.io-client' or its corresponding type declarations.
+examples/websocket/server.ts(2,24): error TS2307: Cannot find module 'socket.io' or its corresponding type declarations.
+src/app/notes/page.tsx(10,28): error TS2307: Cannot find module '@/components/notes/note-editor' or its corresponding type declarations.
+src/app/notes/page.tsx(11,26): error TS2307: Cannot find module '@/components/notes/note-card' or its corresponding type declarations.

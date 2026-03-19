@@ -1,0 +1,441 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-display: var(--font-inter);
+  --font-serif: var(--font-fraunces);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-inter);
+}
+
+/* =====================================================
+   STUDYLENS - GLOSSY BRUTALIST DESIGN SYSTEM
+   Electric Cyan. Electric Lime. Zero radius.
+   ===================================================== */
+
+:root {
+  /* Base colors - Deep blacks */
+  --background: #050505;
+  --background-dark: #050505;
+  --foreground: #fafafa;
+  
+  /* Accent colors - Electric neon */
+  --accent-cyan: #00FFFF;
+  --accent-lime: #CCFF00;
+  
+  /* Primary - muted for backgrounds */
+  --primary: #526e84;
+  
+  /* Surfaces */
+  --card: #0a0a0a;
+  --card-foreground: #fafafa;
+  
+  /* Sidebar */
+  --sidebar: #050505;
+  --sidebar-foreground: #fafafa;
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.05);
+  --ring: #00FFFF;
+  
+  /* Radius - Brutalist = 0 */
+  --radius: 0px;
+}
+
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    background-color: #050505;
+    color: #fafafa;
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Selection styling */
+  ::selection {
+    background: #00FFFF;
+    color: black;
+  }
+}
+
+/* =====================================================
+   TYPOGRAPHY - Glossy Brutalist Scale
+   ===================================================== */
+
+/* Display font - Inter */
+.text-display {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+/* Serif font - Fraunces for dramatic headlines */
+.text-serif {
+  font-family: var(--font-fraunces), serif;
+}
+
+/* Monospace - JetBrains Mono */
+.text-mono {
+  font-family: var(--font-mono), monospace;
+}
+
+/* =====================================================
+   GLOSSY BRUTALIST COMPONENTS
+   ===================================================== */
+
+@layer components {
+  /* Glass Panel */
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Brutalist Border - The signature style */
+  .brutalist-border {
+    border: 2px solid var(--accent-cyan);
+    box-shadow: 4px 4px 0px var(--accent-lime);
+  }
+  
+  .brutalist-border-lime {
+    border: 2px solid var(--accent-lime);
+    box-shadow: 4px 4px 0px var(--accent-cyan);
+  }
+  
+  /* Glossy Gradient Overlay */
+  .glossy-gradient {
+    background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0) 100%);
+  }
+  
+  /* Text Glow Effects */
+  .text-glow-cyan {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  
+  .text-glow-lime {
+    text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+  }
+  
+  /* Card Styles */
+  .card-brutalist {
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+  }
+  
+  .card-brutalist:hover {
+    border-color: rgba(0, 255, 255, 0.5);
+  }
+  
+  /* Button Styles */
+  .btn-brutalist {
+    background: var(--accent-cyan);
+    color: black;
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 12px 24px;
+    box-shadow: 4px 4px 0px var(--accent-lime);
+    transition: all 0.2s ease;
+    border: none;
+  }
+  
+  .btn-brutalist:hover {
+    background: white;
+    box-shadow: 6px 6px 0px var(--accent-lime);
+    transform: translate(-2px, -2px);
+  }
+  
+  .btn-brutalist:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--accent-lime);
+  }
+  
+  /* Secondary Button */
+  .btn-brutalist-outline {
+    background: transparent;
+    color: white;
+    font-family: var(--font-mono), monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-brutalist-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Input Styles */
+  .input-brutalist {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    font-family: var(--font-inter), sans-serif;
+    padding: 12px 16px;
+    transition: all 0.2s ease;
+  }
+  
+  .input-brutalist:focus {
+    outline: none;
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
+  }
+  
+  .input-brutalist::placeholder {
+    color: #525252;
+  }
+  
+  /* Tag/Badge Styles */
+  .tag-cyan {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--accent-cyan);
+    font-family: var(--font-mono), monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+  }
+  
+  .tag-lime {
+    background: var(--accent-lime);
+    color: black;
+    font-family: var(--font-mono), monospace;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 4px 8px;
+  }
+  
+  /* Sidebar Navigation Item */
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    color: #64748b;
+    transition: color 0.2s ease;
+  }
+  
+  .nav-item:hover {
+    color: var(--accent-cyan);
+  }
+  
+  .nav-item-active {
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 4px solid var(--accent-cyan);
+    color: var(--accent-cyan);
+    box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.05);
+  }
+}
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+
+@layer utilities {
+  /* Background colors */
+  .bg-background-dark {
+    background-color: #050505;
+  }
+  
+  .bg-accent-cyan {
+    background-color: var(--accent-cyan);
+  }
+  
+  .bg-accent-lime {
+    background-color: var(--accent-lime);
+  }
+  
+  /* Text colors */
+  .text-accent-cyan {
+    color: var(--accent-cyan);
+  }
+  
+  .text-accent-lime {
+    color: var(--accent-lime);
+  }
+  
+  /* Border radius - Brutalist (none) */
+  .rounded-brutalist {
+    border-radius: 0px;
+  }
+  
+  /* Shadows */
+  .shadow-brutalist-cyan {
+    box-shadow: 4px 4px 0px var(--accent-cyan);
+  }
+  
+  .shadow-brutalist-lime {
+    box-shadow: 4px 4px 0px var(--accent-lime);
+  }
+  
+  .shadow-brutalist-sm {
+    box-shadow: 2px 2px 0px var(--accent-lime);
+  }
+}
+
+/* =====================================================
+   CUSTOM SCROLLBAR
+   ===================================================== */
+
+@layer utilities {
+  .scrollbar-brutalist {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 255, 255, 0.3) transparent;
+  }
+  
+  .scrollbar-brutalist::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-brutalist::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-brutalist::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.3);
+  }
+  
+  .scrollbar-brutalist::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* =====================================================
+   FOCUS STYLES
+   ===================================================== */
+
+@layer base {
+  *:focus-visible {
+    outline: 2px solid #00FFFF;
+    outline-offset: 2px;
+  }
+}
+
+/* =====================================================
+   ANIMATIONS
+   ===================================================== */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Robot Icon Float Animation - Subtle breathing effect */
+@keyframes robot-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+/* Robot Icon Glow Pulse */
+@keyframes robot-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(0, 255, 255, 0.6));
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+}
+
+.animate-robot-float {
+  animation: robot-float 3s ease-in-out infinite;
+}
+
+.animate-robot-glow {
+  animation: robot-glow-pulse 2s ease-in-out infinite;
+}
+
+/* =====================================================
+   MATERIAL SYMBOLS ICON SIZING
+   ===================================================== */
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.material-symbols-outlined.text-sm {
+  font-size: 16px;
+}
+
+.material-symbols-outlined.text-xs {
+  font-size: 14px;
+}
+
+.material-symbols-outlined.text-lg {
+  font-size: 28px;
+}
+
+.material-symbols-outlined.text-xl {
+  font-size: 32px;
+}
+
+.material-symbols-outlined.text-2xl {
+  font-size: 40px;
+}
+
+.material-symbols-outlined.text-6xl {
+  font-size: 60px;
+}
+
+/* Fill variant */
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 700,
+    'GRAD' 0,
+    'opsz' 24;
+}

@@ -1,0 +1,277 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                 String              @id @default(cuid())
+  email              String              @unique
+  name               String
+  password           String
+  image              String?
+  createdAt          DateTime            @default(now())
+  updatedAt          DateTime            @updatedAt
+  accounts           Account[]
+  notes              Note[]
+  reviewCards        ReviewCard[]
+  reviewLogs         ReviewLog[]
+  sessions           Session[]
+  tutorConversations TutorConversation[]
+  interactions       UserInteraction[]
+  profile            UserProfile?
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model UserProfile {
+  id                  String   @id @default(cuid())
+  userId              String   @unique
+  subjects            String
+  formats             String
+  experienceLevel     String
+  timeCommitment      String
+  onboardingCompleted Boolean  @default(false)
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Resource {
+  id           String            @id @default(cuid())
+  title        String
+  description  String
+  author       String
+  type         String
+  subject      String
+  thumbnail    String?
+  url          String
+  difficulty   String
+  tags         String
+  likeCount    Int               @default(0)
+  viewCount    Int               @default(0)
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  notes        Note[]
+  reviewCards  ReviewCard[]
+  reviewLogs   ReviewLog[]
+  interactions UserInteraction[]
+}
+
+model UserInteraction {
+  id         String    @id @default(cuid())
+  userId     String
+  resourceId String
+  rating     Int?
+  saved      Boolean   @default(false)
+  viewed     Boolean   @default(false)
+  savedAt    DateTime?
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  resource   Resource  @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, resourceId])
+}
+
+// ============================================
+// NOTES - Personal Learning Notes
+// ============================================
+
+model Note {
+  id          String    @id @default(cuid())
+  userId      String
+  
+  // Optional: Link to a specific resource
+  resourceId  String?
+  
+  // Note content
+  title       String
+  content     String    // Markdown content
+  
+  // Metadata
+  tags        String    // JSON array: ["python", "algorithms"]
+  color       String?   // For visual organization: "cyan", "lime", etc.
+  isPinned    Boolean   @default(false)
+  
+  // AI-generated summary (optional, for context)
+  summary     String?   // AI-generated 1-2 sentence summary
+  
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  
+  // Relations
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resource    Resource? @relation(fields: [resourceId], references: [id], onDelete: SetNull)
+  
+  @@index([userId])
+  @@index([resourceId])
+}
+
+model ReviewCard {
+  id            String      @id @default(cuid())
+  userId        String
+  resourceId    String
+  due           DateTime
+  stability     Float       @default(0)
+  difficulty    Float       @default(0)
+  elapsedDays   Float       @default(0)
+  scheduledDays Float       @default(0)
+  learningSteps Int         @default(0)
+  reps          Int         @default(0)
+  lapses        Int         @default(0)
+  state         Int         @default(0)
+  lastReview    DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  resource      Resource    @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reviewLogs    ReviewLog[]
+
+  @@unique([userId, resourceId])
+}
+
+model ReviewLog {
+  id            String     @id @default(cuid())
+  userId        String
+  reviewCardId  String
+  resourceId    String
+  rating        Int
+  state         Int
+  due           DateTime
+  stability     Float
+  difficulty    Float
+  elapsedDays   Float
+  scheduledDays Float
+  learningSteps Int
+  reviewedAt    DateTime   @default(now())
+  resource      Resource   @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+  reviewCard    ReviewCard @relation(fields: [reviewCardId], references: [id], onDelete: Cascade)
+  user          User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model TutorConversation {
+  id         String         @id @default(cuid())
+  userId     String
+  resourceId String?
+  title      String?
+  createdAt  DateTime       @default(now())
+  updatedAt  DateTime       @updatedAt
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  messages   TutorMessage[]
+
+  @@index([userId])
+  @@index([resourceId])
+}
+
+model TutorMessage {
+  id             String            @id @default(cuid())
+  conversationId String
+  role           String
+  content        String
+  createdAt      DateTime          @default(now())
+  conversation   TutorConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+
+  @@index([conversationId])
+}
+
+model YouTubeCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model OpenLibraryCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model WikipediaCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model ArxivCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model GutenbergCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model HackerNewsCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model DevToCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}
+
+model GitHubCache {
+  id        String   @id @default(cuid())
+  query     String   @unique
+  results   String
+  fetchedAt DateTime @default(now())
+  expiresAt DateTime
+}

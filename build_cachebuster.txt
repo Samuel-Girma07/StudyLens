@@ -1,0 +1,168 @@
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\KATANA\Music\bun.lock as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\KATANA\Music\studylens\bun.lock
+
+▲ Next.js 16.1.3 (Turbopack)
+- Environments: .env
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 5 errors:
+./studylens/node_modules/lucide-react/dist/esm/icons/check.js:8:1
+Module not found: Can't resolve '../createLucideIcon.js'
+[0m [90m  6 |[39m [90m */[39m
+ [90m  7 |[39m
+[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m createLucideIcon [36mfrom[39m [32m'../createLucideIcon.js'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  9 |[39m
+ [90m 10 |[39m [36mconst[39m __iconNode [33m=[39m [[[32m"path"[39m[33m,[39m { d[33m:[39m [32m"M20 6 9 17l-5-5"[39m[33m,[39m key[33m:[39m [32m"1gmf2c"[39m }]][33m;[39m
+ [90m 11 |[39m [36mconst[39m [33mCheck[39m [33m=[39m createLucideIcon([32m"check"[39m[33m,[39m __iconNode)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/check.js [Client Component Browser]
+    ./studylens/src/components/ui/select.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/check.js [Client Component SSR]
+    ./studylens/src/components/ui/select.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./studylens/node_modules/lucide-react/dist/esm/icons/chevron-down.js:8:1
+Module not found: Can't resolve '../createLucideIcon.js'
+[0m [90m  6 |[39m [90m */[39m
+ [90m  7 |[39m
+[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m createLucideIcon [36mfrom[39m [32m'../createLucideIcon.js'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  9 |[39m
+ [90m 10 |[39m [36mconst[39m __iconNode [33m=[39m [[[32m"path"[39m[33m,[39m { d[33m:[39m [32m"m6 9 6 6 6-6"[39m[33m,[39m key[33m:[39m [32m"qrunsl"[39m }]][33m;[39m
+ [90m 11 |[39m [36mconst[39m [33mChevronDown[39m [33m=[39m createLucideIcon([32m"chevron-down"[39m[33m,[39m __iconNode)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-down.js [Client Component Browser]
+    ./studylens/src/components/ui/select.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-down.js [Client Component SSR]
+    ./studylens/src/components/ui/select.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./studylens/node_modules/lucide-react/dist/esm/icons/chevron-right.js:8:1
+Module not found: Can't resolve '../createLucideIcon.js'
+[0m [90m  6 |[39m [90m */[39m
+ [90m  7 |[39m
+[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m createLucideIcon [36mfrom[39m [32m'../createLucideIcon.js'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  9 |[39m
+ [90m 10 |[39m [36mconst[39m __iconNode [33m=[39m [[[32m"path"[39m[33m,[39m { d[33m:[39m [32m"m9 18 6-6-6-6"[39m[33m,[39m key[33m:[39m [32m"mthhwq"[39m }]][33m;[39m
+ [90m 11 |[39m [36mconst[39m [33mChevronRight[39m [33m=[39m createLucideIcon([32m"chevron-right"[39m[33m,[39m __iconNode)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-right.js [Client Component Browser]
+    ./studylens/src/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./studylens/src/components/shared/header.tsx [Client Component Browser]
+    ./studylens/src/components/shared/index.ts [Client Component Browser]
+    ./studylens/src/app/page.tsx [Client Component Browser]
+    ./studylens/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-right.js [Client Component SSR]
+    ./studylens/src/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./studylens/src/components/shared/header.tsx [Client Component SSR]
+    ./studylens/src/components/shared/index.ts [Client Component SSR]
+    ./studylens/src/app/page.tsx [Client Component SSR]
+    ./studylens/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./studylens/node_modules/lucide-react/dist/esm/icons/chevron-up.js:8:1
+Module not found: Can't resolve '../createLucideIcon.js'
+[0m [90m  6 |[39m [90m */[39m
+ [90m  7 |[39m
+[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m createLucideIcon [36mfrom[39m [32m'../createLucideIcon.js'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  9 |[39m
+ [90m 10 |[39m [36mconst[39m __iconNode [33m=[39m [[[32m"path"[39m[33m,[39m { d[33m:[39m [32m"m18 15-6-6-6 6"[39m[33m,[39m key[33m:[39m [32m"153udz"[39m }]][33m;[39m
+ [90m 11 |[39m [36mconst[39m [33mChevronUp[39m [33m=[39m createLucideIcon([32m"chevron-up"[39m[33m,[39m __iconNode)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-up.js [Client Component Browser]
+    ./studylens/src/components/ui/select.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Client Component Browser]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/chevron-up.js [Client Component SSR]
+    ./studylens/src/components/ui/select.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Client Component SSR]
+    ./studylens/src/app/browse/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+./studylens/node_modules/lucide-react/dist/esm/icons/circle.js:8:1
+Module not found: Can't resolve '../createLucideIcon.js'
+[0m [90m  6 |[39m [90m */[39m
+ [90m  7 |[39m
+[31m[1m>[22m[39m[90m  8 |[39m [36mimport[39m createLucideIcon [36mfrom[39m [32m'../createLucideIcon.js'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m  9 |[39m
+ [90m 10 |[39m [36mconst[39m __iconNode [33m=[39m [[[32m"circle"[39m[33m,[39m { cx[33m:[39m [32m"12"[39m[33m,[39m cy[33m:[39m [32m"12"[39m[33m,[39m r[33m:[39m [32m"10"[39m[33m,[39m key[33m:[39m [32m"1mglay"[39m }]][33m;[39m
+ [90m 11 |[39m [36mconst[39m [33mCircle[39m [33m=[39m createLucideIcon([32m"circle"[39m[33m,[39m __iconNode)[33m;[39m[0m
+
+
+
+Import traces:
+  Client Component Browser:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/circle.js [Client Component Browser]
+    ./studylens/src/components/ui/dropdown-menu.tsx [Client Component Browser]
+    ./studylens/src/components/shared/header.tsx [Client Component Browser]
+    ./studylens/src/components/shared/index.ts [Client Component Browser]
+    ./studylens/src/app/page.tsx [Client Component Browser]
+    ./studylens/src/app/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./studylens/node_modules/lucide-react/dist/esm/icons/circle.js [Client Component SSR]
+    ./studylens/src/components/ui/dropdown-menu.tsx [Client Component SSR]
+    ./studylens/src/components/shared/header.tsx [Client Component SSR]
+    ./studylens/src/components/shared/index.ts [Client Component SSR]
+    ./studylens/src/app/page.tsx [Client Component SSR]
+    ./studylens/src/app/page.tsx [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)

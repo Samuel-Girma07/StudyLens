@@ -1,0 +1,77 @@
+$ next build
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\KATANA\Music\bun.lock as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * C:\Users\KATANA\Music\studylens\bun.lock
+
+   ▲ Next.js 15.5.13
+   - Environments: .env
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 7.0s
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+[FSRS-6]auto fill w from 17 to 21 length
+   Generating static pages (0/33) ...
+[FSRS-6]auto fill w from 17 to 21 length
+   Generating static pages (8/33) 
+[FSRS-6]auto fill w from 17 to 21 length
+   Generating static pages (16/33) 
+   Generating static pages (24/33) 
+ ✓ Generating static pages (33/33)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                    7.25 kB         146 kB
+├ ○ /_not-found                            999 B         103 kB
+├ ○ /analytics                           5.14 kB         150 kB
+├ ƒ /api                                   190 B         102 kB
+├ ƒ /api/analytics                         190 B         102 kB
+├ ƒ /api/auth/[...nextauth]                190 B         102 kB
+├ ƒ /api/auth/signup                       190 B         102 kB
+├ ƒ /api/dashboard                         190 B         102 kB
+├ ƒ /api/notes                             190 B         102 kB
+├ ƒ /api/notes/[id]                        190 B         102 kB
+├ ƒ /api/profile                           190 B         102 kB
+├ ƒ /api/profile/onboarding                190 B         102 kB
+├ ƒ /api/recommendations                   190 B         102 kB
+├ ƒ /api/resources                         190 B         102 kB
+├ ƒ /api/resources/[id]                    190 B         102 kB
+├ ƒ /api/resources/[id]/rate               190 B         102 kB
+├ ƒ /api/resources/[id]/save               190 B         102 kB
+├ ƒ /api/resources/external/rate           190 B         102 kB
+├ ƒ /api/resources/external/save           190 B         102 kB
+├ ƒ /api/review                            190 B         102 kB
+├ ƒ /api/review/[id]                       190 B         102 kB
+├ ƒ /api/review/history                    190 B         102 kB
+├ ƒ /api/saved                             190 B         102 kB
+├ ƒ /api/tutor                             190 B         102 kB
+├ ƒ /api/youtube                           190 B         102 kB
+├ ○ /auth/error                          1.45 kB         107 kB
+├ ○ /auth/signin                          2.8 kB         135 kB
+├ ○ /auth/signup                         3.55 kB         136 kB
+├ ○ /browse                              33.2 kB         187 kB
+├ ○ /for-you                             5.03 kB         153 kB
+├ ○ /notes                               3.97 kB         152 kB
+├ ○ /onboarding                          4.17 kB         137 kB
+├ ○ /profile                             4.34 kB         143 kB
+├ ƒ /resource/[id]                       5.04 kB         159 kB
+├ ○ /review                              10.7 kB         165 kB
+├ ○ /review/history                       4.2 kB         143 kB
+├ ○ /saved                               4.87 kB         153 kB
+└ ○ /tutor                               4.51 kB         143 kB
++ First Load JS shared by all             102 kB
+  ├ chunks/1255-91cd134d0099aac7.js        46 kB
+  ├ chunks/4bd1b696-f785427dddbba9fb.js  54.2 kB
+  └ other shared chunks (total)          2.01 kB
+
+
+ƒ Middleware                             61.6 kB
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

@@ -1,0 +1,12 @@
+$ prisma db push && next build
+warn The configuration property `package.json#prisma` is deprecated and will be removed in Prisma 7. Please migrate to a Prisma config file (e.g., `prisma.config.ts`).
+For more information, see: https://pris.ly/prisma-config
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "neondb", schema "public" at "ep-snowy-rice-andwdjo9.c-6.us-east-1.aws.neon.tech"
+
+Error: P1001: Can't reach database server at `ep-snowy-rice-andwdjo9.c-6.us-east-1.aws.neon.tech:5432`
+
+Please make sure your database server is running at `ep-snowy-rice-andwdjo9.c-6.us-east-1.aws.neon.tech:5432`.
+error: script "build" exited with code 1
