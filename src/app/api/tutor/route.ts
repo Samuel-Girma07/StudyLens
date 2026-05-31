@@ -188,9 +188,7 @@ export async function POST(request: NextRequest) {
     }
 
     // If still no conversation, create a new general conversation
-    // This handles the case when user starts a new chat from /tutor page
     if (!conversation) {
-      // Generate title from first message (truncated to 50 chars)
       const generatedTitle = message.trim().length > 50 
         ? message.trim().slice(0, 47) + "..." 
         : message.trim()
@@ -198,7 +196,7 @@ export async function POST(request: NextRequest) {
       conversation = await db.tutorConversation.create({
         data: {
           userId: user.id,
-          resourceId: null, // General chat, no resource attached
+          resourceId: null,
           title: generatedTitle,
         },
         include: { messages: true },
@@ -233,7 +231,6 @@ export async function POST(request: NextRequest) {
     })
 
     // Build messages for NVIDIA API
-    // System prompt combines the base prompt with resource context if available
     const systemPrompt = TUTOR_SYSTEM_PROMPT + resourceContext
 
     // Build conversation history for context
@@ -260,6 +257,9 @@ export async function POST(request: NextRequest) {
       maxTokens: 2048,
     })
 
+    // Log which model served this request
+    console.log(`[Tutor] Response served by: ${client.getModelDisplayName()} (${client.getModel()})`)
+
     const aiResponse = completion.choices[0]?.message?.content || "I apologize, I couldn't generate a response. Please try again."
 
     // Store AI response
@@ -280,6 +280,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       message: assistantMessage,
       conversationId: conversation.id,
+      model: client.getModelDisplayName(),
     })
   } catch (error) {
     console.error("Error in tutor POST:", error)
@@ -293,6 +294,8 @@ export async function POST(request: NextRequest) {
         errorMessage = "AI service is busy. Please try again in a moment."
       } else if (error.message.includes("network") || error.message.includes("fetch")) {
         errorMessage = "Network error. Please check your connection and try again."
+      } else if (error.message.includes("All models failed")) {
+        errorMessage = "All AI models are currently unavailable. Please try again later."
       }
     }
     
@@ -301,7 +304,7 @@ export async function POST(request: NextRequest) {
 }
 
 // ============================================
-// DELETE - Clear conversation
+// DELETE - Delete a conversation
 // ============================================
 export async function DELETE(request: NextRequest) {
   try {
@@ -314,24 +317,22 @@ export async function DELETE(request: NextRequest) {
     const conversationId = searchParams.get("conversationId")
 
     if (!conversationId) {
-      return NextResponse.json({ error: "Conversation ID required" }, { status: 400 })
+      return NextResponse.json({ error: "Conversation ID is required" }, { status: 400 })
     }
 
-    // Verify ownership and delete
+    // Verify the conversation belongs to the user
     const conversation = await db.tutorConversation.findFirst({
-      where: { id: conversationId, userId: user.id },
+      where: {
+        id: conversationId,
+        userId: user.id,
+      },
     })
 
     if (!conversation) {
       return NextResponse.json({ error: "Conversation not found" }, { status: 404 })
     }
 
-    // Delete all messages first (cascade should handle this, but being explicit)
-    await db.tutorMessage.deleteMany({
-      where: { conversationId },
-    })
-
-    // Delete the conversation
+    // Delete the conversation and all its messages
     await db.tutorConversation.delete({
       where: { id: conversationId },
     })
